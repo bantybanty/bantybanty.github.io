@@ -4,9 +4,13 @@
 !.editorconfig
 !.nojekyll
 !.travis.yml
+_site
+.jekyll-cache
+yarn*
+.bundle
 
 # bundler cache
-# _site
+_site
 vendor
 
 # rubygem
