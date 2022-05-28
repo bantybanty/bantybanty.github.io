@@ -3,10 +3,12 @@ name: Docker Image CI & CD
 on:
   push:
     branches:
-      - main
+      # - main
+      - gh-pages
   pull_request:
     branches:
-      - main
+      # - main
+      - gh-pages
 
 jobs:
   build:
@@ -29,8 +31,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags:
-            ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.latest
-            # ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.v1.0.0
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.latest
+            ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.v1.0.0
+          # cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.buildcache
+          # cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.buildcache,mode=max
