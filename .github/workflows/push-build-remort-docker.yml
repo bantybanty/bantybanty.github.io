@@ -28,7 +28,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags:
-            ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile_webpage:latest
-            # ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile_webpage:v1.0.0
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/profile_webpage:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/profile_webpage:buildcache,mode=max
+            ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.latest
+            # ${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile.webpage.v1.0.0
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile_webpage:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/pvt:profile_webpage:buildcache,mode=max
