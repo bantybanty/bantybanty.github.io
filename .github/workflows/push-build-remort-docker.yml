@@ -1,4 +1,4 @@
-name: Docker Image CI & CD
+name: Docker Profile Webpage Image CI & CD
 
 on:
   push:
