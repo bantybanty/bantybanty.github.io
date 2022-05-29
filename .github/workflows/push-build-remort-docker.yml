@@ -22,6 +22,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+      - name: Exec jekyll
+        run: ${{ secrets.JEKYLL_ENV }} bundle exec jekyll b
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -29,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Build and push
+      - name: Docker Build and push
         uses: docker/build-push-action@v3
         with:
           context: ./
