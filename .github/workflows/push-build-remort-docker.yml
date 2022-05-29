@@ -38,7 +38,7 @@ jobs:
       - name: Setup install bundler dependcy
         run: bundler
       - name: Exec jekyll
-        run: ${{ secrets.JEKYLL_ENV }} bundle exec jekyll b
+        run: JEKYLL_ENV=production bundle exec jekyll b
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
