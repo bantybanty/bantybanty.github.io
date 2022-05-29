@@ -3,12 +3,12 @@ name: Docker Profile Webpage Image CI & CD
 on:
   push:
     branches:
-      # - master
-      - gh-pages
+      - master
+      # - gh-pages
   pull_request:
     branches:
-      # - master
-      - gh-pages
+      - master
+      # - gh-pages
 
 jobs:
   build:
