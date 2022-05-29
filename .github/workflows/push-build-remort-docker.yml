@@ -27,6 +27,16 @@ jobs:
         with:
           ruby-version: 2.7
           bundler-cache: true
+      - name: Setup bashrc
+        run: |
+          echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+          echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+          echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+          source ~/.bashrc
+      - name: Setup install bundler
+        run: gem install jekyll bundler
+      - name: Setup install bundler dependcy
+        run: bundler
       - name: Exec jekyll
         run: ${{ secrets.JEKYLL_ENV }} bundle exec jekyll b
       - name: Login to Docker Hub
